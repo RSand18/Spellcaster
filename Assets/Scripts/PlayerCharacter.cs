@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour {
 
+    [SerializeField]
+    private int lives = 3; //PAscalCase or camelCase
+
+    [SerializeField]
+    private string name = "Mario";
+
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -13,4 +20,9 @@ public class PlayerCharacter : MonoBehaviour {
 		            
         Debug.Log("Hello.");
 	}
+
+    private void Move()
+    {
+
+    }
 }

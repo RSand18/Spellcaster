@@ -30,15 +30,6 @@ public class PlayerCharacter : MonoBehaviour {
         //We have to initialize our rigidbody variable!
         rigidBody2DInstance.gravityScale = 5;
 
-        if (hasKey)
-        {
-            float openTimer = 5;
-            for (int i = 0; i < openTimer; i++)
-            {
-                Debug.Log(i);
-            }
-            Debug.Log("Open the door after " + " Seconds!");
-        }
 	}
 	
 	// Update is called once per frame

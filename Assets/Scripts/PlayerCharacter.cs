@@ -4,50 +4,54 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour {
 
-    [SerializeField]
-    private int lives = 3; //PascalCase or camelCase
+    public float maxSpeed = 10f;
+    bool facingRight = true;
 
-    [SerializeField]
-    private string name = "Mario";
+    Animator anim;
+    Rigidbody2D rb2d;
 
-    [SerializeField]
-    private float jumpHeight = 5, speed = 5;
 
-    private bool hasKey;
+    public float jumpForce = 700f;
 
-    [SerializeField]
-    private bool isOnGround;
+    bool doubleJump = false;
 
-    private Rigidbody2D rigidBody2DInstance;
-    private float horizontalInput;
-
-	// Use this for initialization
-	void Start ()
+    void Start()
     {
-
-        rigidBody2DInstance = GetComponent<Rigidbody2D>();
-
-        //We have to initialize our rigidbody variable!
-        rigidBody2DInstance.gravityScale = 5;
-
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        //transform.Translate does NOT use physics, rigidbody does
-        //transform.Translate(0, -0.01f, 0); 
-
-        GetInput();
-        Move();
-	}
-    private void GetInput()
-    {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        anim = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
-    private void Move()
+
+    void FixedUpdate()
     {
-        rigidBody2DInstance.velocity = new Vector2(horizontalInput, 0);
+        float move = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("Speed", Mathf.Abs(move));
+
+        rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
+
+        if (move > 0 && !facingRight)
+            Flip();
+        else if (move < 0 && facingRight)
+            Flip();
+    }
+
+    void Update()
+    {
+        if  (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            rb2d.AddForce(new Vector2(0, jumpForce));
+
+
+        }
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

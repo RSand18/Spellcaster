@@ -16,7 +16,7 @@ public class PlayerCharacter : MonoBehaviour {
     public LayerMask whatIsGround;
     public float jumpForce = 700f;
 
-    bool doubleJump = false;
+    bool castPlatform = false;
 
     void Start()
     {

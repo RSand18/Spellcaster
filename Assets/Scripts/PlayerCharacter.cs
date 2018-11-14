@@ -10,7 +10,10 @@ public class PlayerCharacter : MonoBehaviour {
     Animator anim;
     Rigidbody2D rb2d;
 
-
+    bool grounded = false;
+    public Transform groundCheck;
+    float groundRadius = 0.2f;
+    public LayerMask whatIsGround;
     public float jumpForce = 700f;
 
     bool doubleJump = false;
@@ -24,6 +27,11 @@ public class PlayerCharacter : MonoBehaviour {
 
     void FixedUpdate()
     {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        anim.SetBool("Ground", grounded);
+
+        anim.SetFloat("vSpeed", rb2d.velocity.y);
+
         float move = Input.GetAxis("Horizontal");
 
         anim.SetFloat("Speed", Mathf.Abs(move));
@@ -38,9 +46,9 @@ public class PlayerCharacter : MonoBehaviour {
 
     void Update()
     {
-        if  (Input.GetKeyDown(KeyCode.Space))
+        if  (grounded && Input.GetKeyDown(KeyCode.Space))
         {
-            
+            anim.SetBool("Ground", false);
             rb2d.AddForce(new Vector2(0, jumpForce));
 
 

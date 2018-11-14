@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: 26c9f41fc3247034e97608f4687eeb01
-timeCreated: 1542225672
+guid: a089d980a75726a429a0b0fbc613d11b
+timeCreated: 1542225831
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: WizardIdle_0
-    21300002: WizardIdle_1
+    21300000: Checkpoint_0
+    21300002: Checkpoint_1
+    21300004: Checkpoint_2
+    21300006: Checkpoint_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -43,7 +45,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -80,34 +82,78 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WizardIdle_0
+      name: Checkpoint_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 2
-        width: 18
-        height: 28
+        x: 11
+        y: 32
+        width: 10
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WizardIdle_1
+      name: Checkpoint_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 2
-        width: 18
-        height: 28
+        x: 43
+        y: 32
+        width: 12
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    outline: []
+    - serializedVersion: 2
+      name: Checkpoint_2
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Checkpoint_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 0
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -12, y: 31}
+      - {x: -20, y: 31}
+      - {x: -23, y: 27}
+      - {x: -23, y: -32}
+      - {x: -4, y: -32}
+      - {x: -1, y: -30}
+      - {x: -1, y: 3}
+      - {x: -6, y: 29}
+    - - {x: 23, y: 31}
+      - {x: 11, y: 31}
+      - {x: 9, y: 23}
+      - {x: 9, y: -32}
+      - {x: 31, y: -32}
+      - {x: 32, y: -29}
+      - {x: 32, y: 13}
+      - {x: 27, y: 29}
     physicsShape: []
   spritePackingTag: 
   userData: 

@@ -5,15 +5,9 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour {
 
     Animator checkpointAnim;
+
     private bool isActivated = false;
 
-    private void UpdateAnimation()
-    {
-        if (isActivated)
-        {
-
-        }
-    }
 
     void Start()
     {
@@ -30,18 +24,13 @@ public class Checkpoint : MonoBehaviour {
        
     }
 
-    public void SetIsActivated(bool value)
-    {
-        isActivated = value;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            checkpointAnim.SetTrigger("Activate");
-            PlayerCharacter player = collision.GetComponent<PlayerCharacter>();
-            player.SetCurrentCheckpoint(this);
+            isActivated = true;
+            checkpointAnim.SetTrigger("CPActivate");
             Debug.Log("Checkpoint");
         }
     }

@@ -9,7 +9,7 @@ public class Hazard : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {

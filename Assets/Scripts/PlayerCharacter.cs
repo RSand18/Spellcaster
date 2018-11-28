@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCharacter : MonoBehaviour {
 
@@ -17,6 +18,9 @@ public class PlayerCharacter : MonoBehaviour {
     public float jumpForce = 700f;
 
     bool castPlatform = false;
+
+    private Checkpoint currentCheckpoint;
+
 
     void Start()
     {
@@ -50,8 +54,6 @@ public class PlayerCharacter : MonoBehaviour {
         {
             anim.SetBool("Ground", false);
             rb2d.AddForce(new Vector2(0, jumpForce));
-
-
         }
     }
 
@@ -61,5 +63,28 @@ public class PlayerCharacter : MonoBehaviour {
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public void Respawn()
+    {
+        if (currentCheckpoint == null)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            rb2d.velocity = Vector2.zero;
+            transform.position = currentCheckpoint.transform.position;
+        }
+    }
+
+    public void SetCurrentCheckpoint(Checkpoint newCurrentCheckpoint)
+    {
+        if (currentCheckpoint != null)
+        {
+            currentCheckpoint.SetIsActivated(false);
+        }
+        currentCheckpoint = newCurrentCheckpoint;
+        currentCheckpoint.SetIsActivated(true);
     }
 }

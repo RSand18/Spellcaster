@@ -8,6 +8,10 @@ public class PlayerCharacter : MonoBehaviour {
     public float maxSpeed = 10f;
     bool facingRight = true;
 
+    public GameObject SpecialPlatform;
+    public float SpawnMin;
+    public float SpawnMax;
+
     Animator anim;
     Rigidbody2D rb2d;
     AudioSource audSrc;
@@ -58,6 +62,10 @@ public class PlayerCharacter : MonoBehaviour {
             rb2d.AddForce(new Vector2(0, jumpForce));
             audSrc.Play();
         }
+        if (!grounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            
+        }
     }
 
     void Flip()
@@ -80,6 +88,6 @@ public class PlayerCharacter : MonoBehaviour {
             transform.position = currentCheckpoint.transform.position;
         }
     }
-
+   
   
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour {
 
     Animator checkpointAnim;
+    AudioSource checkpointAudSrc;
 
     private bool isActivated = false;
 
@@ -12,6 +13,7 @@ public class Checkpoint : MonoBehaviour {
     void Start()
     {
         checkpointAnim = GetComponent<Animator>();
+        checkpointAudSrc = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -31,7 +33,7 @@ public class Checkpoint : MonoBehaviour {
         {
             isActivated = true;
             checkpointAnim.SetTrigger("CPActivate");
-            Debug.Log("Checkpoint");
+            checkpointAudSrc.Play();
         }
     }
 }

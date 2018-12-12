@@ -10,6 +10,7 @@ public class PlayerCharacter : MonoBehaviour {
 
     Animator anim;
     Rigidbody2D rb2d;
+    AudioSource audSrc;
 
     bool grounded = false;
     public Transform groundCheck;
@@ -26,6 +27,7 @@ public class PlayerCharacter : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        audSrc = GetComponent<AudioSource>();
     }
 
 
@@ -54,6 +56,7 @@ public class PlayerCharacter : MonoBehaviour {
         {
             anim.SetBool("Ground", false);
             rb2d.AddForce(new Vector2(0, jumpForce));
+            audSrc.Play();
         }
     }
 
